@@ -1,0 +1,2388 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asas Awad - Luxury Home Furniture</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B4513;  /* Saddle Brown - warm, rich wood tone */
+            --secondary-color: #A0522D; /* Sienna - complementary wood tone */
+            --accent-color: #D2691E;   /* Chocolate - warm accent color */
+            --text-dark: #2C1810;      /* Dark brown for text */
+            --text-light: #6B4F3F;     /* Lighter brown for secondary text */
+            --bg-light: #F5F0EB;       /* Warm off-white background */
+            --bg-white: #FFFFFF;
+            --border-color: #E5D3C3;   /* Light wood tone for borders */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --gradient-primary: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            --gradient-secondary: linear-gradient(135deg, #D2691E 0%, #CD853F 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2V6h4V4H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body[dir="rtl"] {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border-color);
+            animation: slideInDown 0.5s ease-out;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .lang-toggle {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lang-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-slider-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .hero-slider-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .hero-slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-slider-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .hero-slider-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .hero-slider-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .hero-slider-btn:active {
+            transform: scale(0.95);
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(0, 0, 0, 0.5) 50%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Section Styles */
+        .section {
+            position: relative;
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%),
+                url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232563eb' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-secondary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: white;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: var(--bg-light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%);
+            background-size: 20px 20px;
+            animation: slide 2s linear infinite;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .portfolio-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-image {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            margin: 2rem auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .team-info {
+            padding: 0 2rem 2rem;
+        }
+
+        .team-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .team-info p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--bg-light);
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            background: white;
+            padding: 3rem;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            animation: fadeInUp 0.6s ease-out;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial-dot.active {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .testimonial-dot:hover {
+            transform: scale(1.2);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--bg-light);
+        }
+
+        .form-control:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-control.error {
+            border-color: #ef4444;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(-20px);
+            }
+            100% {
+                transform: translateX(20px);
+            }
+        }
+
+        /* RTL Styles */
+        [dir="rtl"] .nav-menu {
+            direction: rtl;
+        }
+
+        [dir="rtl"] .about-content {
+            direction: rtl;
+        }
+
+        [dir="rtl"] .contact-content {
+            direction: rtl;
+        }
+
+        [dir="rtl"] .contact-item {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .social-links {
+            direction: rtl;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .nav-menu {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .services-grid,
+            .portfolio-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+            animation: fadeOut 0.5s ease-out forwards;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite, pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Add subtle animation to background elements */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .section::after {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .about::after {
+            top: -150px;
+            right: -150px;
+        }
+
+        .services::after {
+            bottom: -150px;
+            left: -150px;
+        }
+
+        .portfolio::after {
+            top: -150px;
+            left: -150px;
+        }
+
+        .team::after {
+            bottom: -150px;
+            right: -150px;
+        }
+
+        /* Testimonials Section */
+        .testimonial-dot:hover {
+            transform: scale(1.2);
+        }
+
+        /* Clients/Partners Section Styles */
+        .clients {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .clients::before {
+             content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-white);
+            z-index: -1;
+        }
+
+        .clients-slider {
+            display: flex;
+            overflow: hidden; /* Hide horizontal scrollbar */
+            scroll-snap-type: none; /* Remove snap behavior */
+            -webkit-overflow-scrolling: auto; /* Reset scrolling */
+            position: relative; /* Needed for absolute positioning of controls */
+            padding: 0 50px; /* Add padding to make space for buttons inside slider */
+            align-items: center; /* Vertically center items */
+        }
+
+        .clients-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Add transition for sliding effect */
+            scroll-snap-align: none; /* Remove snap behavior */
+            align-items: center; /* Ensure items within the track are centered */
+            height: 100%; /* Make the track take full height of the slider */
+        }
+
+        .client-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 120px; /* Fixed height for consistency */
+            min-width: 200px; /* Adjust min-width for slider item visibility */
+            flex-shrink: 0; /* Prevent items from shrinking */
+            border: 1px solid var(--border-color);
+            scroll-snap-align: none; /* Remove snap behavior */
+            margin: 0 0.5rem; /* Add a small margin between items */
+        }
+
+        .client-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color); /* Highlight on hover */
+        }
+
+        .client-item img {
+            max-width: 100%;
+            max-height: 80px; /* Limit image size */
+            object-fit: contain;
+            filter: grayscale(100%); /* Grayscale by default */
+            opacity: 0.7; /* Slightly transparent */
+            transition: all 0.3s ease;
+        }
+
+        .client-item:hover img {
+            filter: grayscale(0%); /* Full color on hover */
+            opacity: 1; /* Fully opaque on hover */
+        }
+
+        .clients-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 0.1; /* Subtle background effect */
+            z-index: -2; /* Below the section content but above the default background */
+            filter: blur(5px); /* Add a blur effect to the background image */
+        }
+
+        .clients-slider-btn {
+            position: absolute; /* Position buttons absolutely within the slider */
+            top: 50%; /* Vertically center */
+            transform: translateY(-50%); /* Adjust for vertical centering */
+            background: rgba(139, 69, 19, 0.8); /* Use primary color with opacity */
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 3; /* Ensure buttons are above images */
+        }
+
+        #prevClient {
+            left: 5px; /* Position previous button on the left */
+        }
+
+        #nextClient {
+            right: 5px; /* Position next button on the right */
+        }
+
+        .clients-slider-btn:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .clients-slider-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Contact Section */
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--bg-light);
+        }
+
+        .form-control:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-control.error {
+            border-color: #ef4444;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Shop Section Styles */
+        .shop .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .shop-content {
+            display: grid;
+            grid-template-columns: 1fr 3fr; /* Categories on left, Products on right */
+            gap: 4rem;
+        }
+
+        .shop-categories {
+            /* Styling for category list */
+        }
+
+        .shop-categories h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .category-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .category-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block; /* Allow padding/margin and transform */
+            padding: 0.2rem 0; /* Add slight padding */
+            position: relative; /* For underline effect */
+            background: none; /* Remove button background */
+            border: none; /* Remove button border */
+            cursor: pointer; /* Indicate clickable */
+            font-size: 1rem; /* Match surrounding text */
+        }
+
+        .category-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .category-link:hover,
+        .category-link.active {
+            color: var(--primary-color);
+        }
+
+         .category-link:hover::before,
+         .category-link.active::before {
+            transform: scaleX(1);
+            transform-origin: left;
+         }
+
+        .shop-products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .product-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--border-color);
+            overflow: hidden;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .product-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 968px) {
+            .shop-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header" data-aos="fade-down" data-aos-duration="1000">
+        <div class="container">
+            <nav class="nav">
+                <a href="#home" class="logo" data-en="Asas Awad" data-ar="أساس عوض">Asas Awad</a>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-en="About" data-ar="من نحن">About</a></li>
+                    <li><a href="#services" class="nav-link" data-en="Services" data-ar="خدماتنا">Services</a></li>
+                    <li><a href="#team" class="nav-link" data-en="Team" data-ar="فريقنا">Team</a></li>
+                    <li><a href="#testimonials" class="nav-link" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</a></li>
+                    <li><a href="#contact" class="nav-link" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+                    <li><a href="#shop" class="nav-link" data-en="Shop" data-ar="المتجر">Shop</a></li>
+                    <li><a href="#blog" class="nav-link" data-en="Blog" data-ar="المدونة">Blog</a></li>
+                </ul>
+
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <button class="lang-toggle" id="langToggle">
+                    <i class="fas fa-globe"></i>
+                        <span data-en="العربية" data-ar="English">العربية</span>
+                </button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');"></div>
+                    </div>
+        <div class="hero-slider-controls">
+            <button class="hero-slider-btn" id="prevSlide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="hero-slider-dots" id="heroSliderDots">
+                <div class="hero-slider-dot active" data-index="0"></div>
+                <div class="hero-slider-dot" data-index="1"></div>
+                <div class="hero-slider-dot" data-index="2"></div>
+                </div>
+            <button class="hero-slider-btn" id="nextSlide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            </div>
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <h1 data-en="Crafting Luxury Living Spaces" data-ar="نصنع مساحات معيشة فاخرة">Crafting Luxury Living Spaces</h1>
+                <p data-en="Discover our exclusive collection of premium furniture, where timeless elegance meets contemporary design. Transform your home into a masterpiece of luxury and comfort." data-ar="اكتشف مجموعتنا الحصرية من الأثاث الفاخر، حيث يلتقي الأناقة الخالدة بالتصميم المعاصر. حول منزلك إلى تحفة من الفخامة والراحة.">Discover our exclusive collection of premium furniture, where timeless elegance meets contemporary design. Transform your home into a masterpiece of luxury and comfort.</p>
+                    <div class="cta-buttons">
+                    <a href="#services" class="btn btn-primary">
+                        <span data-en="Explore Collection" data-ar="استكشف المجموعة">Explore Collection</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span data-en="Book Consultation" data-ar="احجز استشارة">Book Consultation</span>
+                        <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="section-title" data-en="About Asas Awad" data-ar="عن أساس عوض">About Asas Awad</h2>
+                <p class="section-subtitle" data-en="Where luxury meets craftsmanship in every piece of furniture we create." data-ar="حيث يلتقي الفخام بالحرفية في كل قطعة أثاث نصنعها.">Where luxury meets craftsmanship in every piece of furniture we create.</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h3 data-en="Our Legacy" data-ar="إرثنا">Our Legacy</h3>
+                    <p data-en="For decades, Asas Awad has been synonymous with luxury furniture craftsmanship. Our journey began with a simple vision: to create exceptional pieces that transform houses into homes of distinction." data-ar="لعدة عقود، كانت أساس عوض مرادفاً لحرفية الأثاث الفاخر. بدأت رحلتنا برؤية بسيطة: خلق قطع استثنائية تحول المنازل إلى مساحات معيشة متميزة.">For decades, Asas Awad has been synonymous with luxury furniture craftsmanship. Our journey began with a simple vision: to create exceptional pieces that transform houses into homes of distinction.</p>
+                    
+                    <h3 data-en="Our Commitment" data-ar="التزامنا">Our Commitment</h3>
+                    <p data-en="We are committed to excellence in every detail, from selecting the finest materials to the meticulous craftsmanship that goes into each piece. Our furniture is not just built; it's crafted with passion and precision." data-ar="نحن ملتزمون بالتميز في كل التفاصيل، من اختيار أفضل المواد إلى الحرفية الدقيقة التي تدخل في كل قطعة. أثاثنا ليس مجرد صناعة؛ بل هو حرفة بالشغف والدقة.">We are committed to excellence in every detail, from selecting the finest materials to the meticulous craftsmanship that goes into each piece. Our furniture is not just built; it's crafted with passion and precision.</p>
+                    
+                    <h3 data-en="Our Vision" data-ar="رؤيتنا">Our Vision</h3>
+                    <p data-en="To be the leading name in luxury furniture, setting new standards in design, quality, and customer experience while preserving the art of fine craftsmanship." data-ar="أن نكون الاسم الرائد في الأثاث الفاخر، ووضع معايير جديدة في التصميم والجودة وتجربة العملاء مع الحفاظ على فن الحرفية الدقيقة.">To be the leading name in luxury furniture, setting new standards in design, quality, and customer experience while preserving the art of fine craftsmanship.</p>
+                </div>
+                
+                <div class="features">
+                    <div class="feature-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 data-en="Excellence" data-ar="التميز">Excellence</h3>
+                        <p data-en="We strive for excellence in everything we do, delivering top-quality solutions that exceed expectations." data-ar="نسعى للتميز في كل ما نفعله، ونقدم حلولاً عالية الجودة تتجاوز التوقعات.">We strive for excellence in everything we do, delivering top-quality solutions that exceed expectations.</p>
+                    </div>
+                    
+                    <div class="feature-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 data-en="Trust" data-ar="الثقة">Trust</h3>
+                        <p data-en="Building lasting relationships through transparency, reliability, and consistent delivery of promises." data-ar="بناء علاقات دائمة من خلال الشفافية والموثوقية والوفاء المستمر بالوعود.">Building lasting relationships through transparency, reliability, and consistent delivery of promises.</p>
+                    </div>
+                    
+                    <div class="feature-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 data-en="Innovation" data-ar="الابتكار">Innovation</h3>
+                        <p data-en="Embracing new technologies and creative approaches to solve complex business challenges." data-ar="احتضان التقنيات الجديدة والأساليب الإبداعية لحل التحديات التجارية المعقدة.">Embracing new technologies and creative approaches to solve complex business challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="section-title" data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
+                <p class="section-subtitle" data-en="Comprehensive solutions tailored to meet your business needs and drive growth." data-ar="حلول شاملة مصممة خصيصاً لتلبية احتياجات أعمالك ودفع النمو.">Comprehensive solutions tailored to meet your business needs and drive growth.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3 data-en="Custom Furniture Design" data-ar="تصميم أثاث مخصص">Custom Furniture Design</h3>
+                    <p data-en="Bespoke furniture solutions tailored to your unique style and space requirements, crafted with premium materials and expert attention to detail." data-ar="حلول أثاث مخصصة مصممة حسب أسلوبك الفريد ومتطلبات مساحتك، مصنوعة من مواد فاخرة مع اهتمام دقيق بالتفاصيل.">Bespoke furniture solutions tailored to your unique style and space requirements, crafted with premium materials and expert attention to detail.</p>
+                </div>
+                
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3 data-en="Interior Design Consultation" data-ar="استشارات التصميم الداخلي">Interior Design Consultation</h3>
+                    <p data-en="Expert guidance in creating harmonious living spaces that reflect your personal style while maximizing comfort and functionality." data-ar="توجيه متخصص في خلق مساحات معيشة متناسقة تعكس أسلوبك الشخصي مع تعظيم الراحة والوظائفية.">Expert guidance in creating harmonious living spaces that reflect your personal style while maximizing comfort and functionality.</p>
+                </div>
+                
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 data-en="Premium Craftsmanship" data-ar="حرفية فاخرة">Premium Craftsmanship</h3>
+                    <p data-en="Handcrafted furniture pieces using traditional techniques combined with modern innovation, ensuring exceptional quality and durability." data-ar="قطع أثاث مصنوعة يدوياً باستخدام تقنيات تقليدية مع الابتكار الحديث، مما يضمن جودة استثنائية ومتانة.">Handcrafted furniture pieces using traditional techniques combined with modern innovation, ensuring exceptional quality and durability.</p>
+                </div>
+                
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 data-en="White Glove Delivery" data-ar="خدمة توصيل فاخرة">White Glove Delivery</h3>
+                    <p data-en="Premium delivery and installation service ensuring your furniture arrives and is placed with the utmost care and precision." data-ar="خدمة توصيل وتركيب فاخرة تضمن وصول أثاثك ووضعه بأقصى درجات العناية والدقة.">Premium delivery and installation service ensuring your furniture arrives and is placed with the utmost care and precision.</p>
+                </div>
+                
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 data-en="Lifetime Care" data-ar="رعاية دى الحياة">Lifetime Care</h3>
+                    <p data-en="Comprehensive maintenance and care services to preserve the beauty and quality of your luxury furniture for generations." data-ar="خدمات شاملة للصيانة والعناية للحفاظ على جمال وجودة أثاثك الفاخر للأجيال القادمة.">Comprehensive maintenance and care services to preserve the beauty and quality of your luxury furniture for generations.</p>
+                </div>
+                
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 data-en="Showroom Experience" data-ar="تجربة في المعرض">Showroom Experience</h3>
+                    <p data-en="Visit our exclusive showrooms to experience our collections firsthand and receive personalized attention from our design experts." data-ar="قم بزيارة معارضنا الحصرية لتجربة مجموعاتنا مباشرة والحصول على اهتمام شخصي من خبراء التصميم لدينا.">Visit our exclusive showrooms to experience our collections firsthand and receive personalized attention from our design experts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="section-title" data-en="Our Portfolio" data-ar="أعمالنا">Our Portfolio</h2>
+                <p class="section-subtitle" data-en="Showcasing our successful projects and the impact we've made for our clients across various industries." data-ar="عرض مشاريعنا الناجحة والتأثير الذي أحدثناه لعملائنا عبر مختلف الصناعات.">Showcasing our successful projects and the impact we've made for our clients across various industries.</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="portfolio-image">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 data-en="Luxury Living Room Collection" data-ar="مجموعة غرفة المعيشة الفاخرة">Luxury Living Room Collection</h3>
+                        <p data-en="Complete transformation of a modern villa's living space with custom-designed furniture." data-ar="تحول كامل لمساحة معيشة فيلا حديثة بأثاث مصمم خصيصاً.">Complete transformation of a modern villa's living space with custom-designed furniture.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="portfolio-image">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 data-en="Master Bedroom Suite" data-ar="جناح غرفة النوم الرئيسية">Master Bedroom Suite</h3>
+                        <p data-en="Exclusive bedroom furniture collection featuring premium materials and elegant design." data-ar="مجموعة حصرية من أثاث غرفة النوم تتميز بمواد فاخرة وتصميم أنيق.">Exclusive bedroom furniture collection featuring premium materials and elegant design.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="portfolio-image">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 data-en="Gourmet Kitchen Design" data-ar="تصميم مطبخ فاخر">Gourmet Kitchen Design</h3>
+                        <p data-en="Luxury kitchen furniture and cabinetry combining functionality with sophisticated style." data-ar="أثاث مطبخ فاخر وخزائن تجمع بين الوظائفية والأسلوب المتطور.">Luxury kitchen furniture and cabinetry combining functionality with sophisticated style.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="portfolio-image">
+                        <i class="fas fa-chair"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 data-en="Executive Office Collection" data-ar="مجموعة المكتب التنفيذي">Executive Office Collection</h3>
+                        <p data-en="Premium office furniture designed for comfort and productivity in professional settings." data-ar="أثاث مكتب فاخر مصمم للراحة والإنتاجية في البيئات المهنية.">Premium office furniture designed for comfort and productivity in professional settings.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="500">
+                    <div class="portfolio-image">
+                        <i class="fas fa-glass-martini-alt"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 data-en="Entertainment Suite" data-ar="جناح الترفيه">Entertainment Suite</h3>
+                        <p data-en="Custom-designed entertainment furniture for sophisticated home theaters and lounges." data-ar="أثاث ترفيه مصمم خصيصاً لدور السينما المنزلية الفاخرة وصالات الاسترخاء.">Custom-designed entertainment furniture for sophisticated home theaters and lounges.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="600">
+                    <div class="portfolio-image">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 data-en="Custom Doors & Paneling" data-ar="أبواب وتلبيسات مخصصة">Custom Doors & Paneling</h3>
+                        <p data-en="Bespoke wooden doors and wall paneling solutions for luxury interiors." data-ar="حلول أبواب خشبية وتلبيسات جدارية مخصصة للديكورات الداخلية الفاخرة.">Bespoke wooden doors and wall paneling solutions for luxury interiors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Team Section -->
+    <section class="section team" id="team">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="section-title" data-en="Our Team" data-ar="فريقنا">Our Team</h2>
+                <p class="section-subtitle" data-en="Meet the experienced professionals who drive our success and deliver exceptional results for our clients." data-ar="تعرف على المهنيين ذوي الخبرة الذين يقودون نجاحنا ويحققون نتائج استثنائية لعملائنا.">Meet the experienced professionals who drive our success and deliver exceptional results for our clients.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="team-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 data-en="Ahmed Al-Rashid" data-ar="أحمد الراشد">Ahmed Al-Rashid</h3>
+                        <p data-en="Chief Executive Officer" data-ar="الرئيس التنفيذي">Chief Executive Officer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="team-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="team-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 data-en="Sarah Johnson" data-ar="سارة جونسون">Sarah Johnson</h3>
+                        <p data-en="Strategy Director" data-ar="مدير الاستراتيجية">Strategy Director</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="team-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="team-image">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 data-en="Omar Hassan" data-ar="عمر حسان">Omar Hassan</h3>
+                        <p data-en="Technology Lead" data-ar="رئيس التقنية">Technology Lead</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="team-image">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 data-en="Fatima Al-Zahra" data-ar="فاطمة الزهراء">Fatima Al-Zahra</h3>
+                        <p data-en="Client Relations Manager" data-ar="مدير علاقات العملاء">Client Relations Manager</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="section-title" data-en="What Our Clients Say" data-ar="ماذا يقول عملاؤنا">What Our Clients Say</h2>
+                <p class="section-subtitle" data-en="Hear from our satisfied clients about their experience working with Asas Awad." data-ar="اسمع من عملائنا الراضين عن تجربتهم في العمل مع أساس عوض.">Hear from our satisfied clients about their experience working with Asas Awad.</p>
+            </div>
+            
+            <div class="testimonial-slider" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="testimonial-track" id="testimonialTrack">
+                <div class="testimonial-card">
+                        <p class="testimonial-text" data-en="Working with Asas Awad transformed our business operations completely. Their strategic insights and professional approach delivered results beyond our expectations." data-ar="العمل مع أساس عوض غيّر عمليات أعمالنا تماماً. رؤاهم الاستراتيجية ونهجهم المهني حقق نتائج تجاوزت توقعاتنا.">"Working with Asas Awad transformed our business operations completely. Their strategic insights and professional approach delivered results beyond our expectations."</p>
+                        <div class="testimonial-author" data-en="Michael Roberts" data-ar="مايكل روبرتس">Michael Roberts</div>
+                        <div class="testimonial-role" data-en="CEO, TechCorp Solutions" data-ar="الرئيس التنفيذي، تيك كورب سوليوشنز">CEO, TechCorp Solutions</div>
+                    </div>
+                    
+                <div class="testimonial-card">
+                        <p class="testimonial-text" data-en="The team at Asas Awad demonstrated exceptional expertise and dedication throughout our project. Their innovative solutions helped us achieve our goals efficiently." data-ar="أظهر فريق أساس عوض خبرة استثنائية وتفانياً طوال مشروعنا. حلولهم المبتكرة ساعدتنا على تحقيق أهدافنا بكفاءة.">"The team at Asas Awad demonstrated exceptional expertise and dedication throughout our project. Their innovative solutions helped us achieve our goals efficiently."</p>
+                        <div class="testimonial-author" data-en="Layla Al-Mansouri" data-ar="ليلى المنصوري">Layla Al-Mansouri</div>
+                        <div class="testimonial-role" data-en="Director, Gulf Enterprises" data-ar="مدير، مؤسسات الخليج">Director, Gulf Enterprises</div>
+                    </div>
+                    
+                <div class="testimonial-card">
+                        <p class="testimonial-text" data-en="Outstanding service and remarkable results! Asas Awad's comprehensive approach to business consulting exceeded all our expectations and delivered measurable impact." data-ar="خدمة متميزة ونتائج رائعة! النهج الشامل لأساس عوض في الاستشارات التجارية تجاوز كل توقعاتنا وحقق تأثيراً قابلاً للقياس.">"Outstanding service and remarkable results! Asas Awad's comprehensive approach to business consulting exceeded all our expectations and delivered measurable impact."</p>
+                        <div class="testimonial-author" data-en="David Chen" data-ar="ديفيد تشين">David Chen</div>
+                        <div class="testimonial-role" data-en="Founder, InnovateNow" data-ar="المؤسس، إنوفيت ناو">Founder, InnovateNow</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active" data-index="0"></div>
+                    <div class="testimonial-dot" data-index="1"></div>
+                    <div class="testimonial-dot" data-index="2"></div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section class="section shop" id="shop">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="section-title" data-en="Our Shop" data-ar="متجرنا">Our Shop</h2>
+                <p class="section-subtitle" data-en="Browse our collection of exquisite furniture pieces." data-ar="تصفح مجموعتنا من قطع الأثاث الرائعة.">Browse our collection of exquisite furniture pieces.</p>
+            </div>
+            
+            <div class="shop-content">
+                <div class="shop-categories">
+                    <h3 data-en="Categories" data-ar="الأقسام">Categories</h3>
+                    <ul class="category-list">
+                        <li><a href="#" class="category-link" data-category="all" data-en="All" data-ar="الكل">All</a></li>
+                        <li><a href="#" class="category-link" data-category="living-room" data-en="Living Room" data-ar="غرفة المعيشة">Living Room</a></li>
+                        <li><a href="#" class="category-link" data-category="bedroom" data-ar="غرفة النوم">Bedroom</a></li>
+                        <li><a href="#" class="category-link" data-category="dining-room" data-en="Dining Room" data-ar="غرفة الطعام">Dining Room</a></li>
+                        <li><a href="#" class="category-link" data-category="office" data-en="Office" data-ar="المكتب">Office</a></li>
+                        <li><a href="#" class="category-link" data-category="outdoor" data-ar="الخارجية">Outdoor</a></li>
+                    </ul>
+                </div>
+                <div class="shop-products-grid">
+                    <!-- Product items will be added here -->
+                    <div class="product-item" data-category="living-room">
+                        <div class="product-image">
+                             <i class="fas fa-couch"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3 data-en="Elegant Sofa Set" data-ar="طقم كنب أنيق">Elegant Sofa Set</h3>
+                            <p data-en="A luxurious sofa set crafted with premium fabric and solid wood frame." data-ar="طقم كنب فاخر مصنوع من قماش ممتاز وإطار من الخشب الصلب.">A luxurious sofa set crafted with premium fabric and solid wood frame.</p>
+                            <div class="product-price">$1,500</div>
+                        </div>
+                    </div>
+                     <div class="product-item" data-category="bedroom">
+                        <div class="product-image">
+                             <i class="fas fa-bed"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3 data-en="King Size Bed" data-ar="سرير حجم كينغ">King Size Bed</h3>
+                            <p data-en="Experience ultimate comfort with our handcrafted king size bed." data-ar="جرب الراحة المطلقة مع سريرنا حجم كينغ المصنوع يدوياً.">Experience ultimate comfort with our handcrafted king size bed.</p>
+                            <div class="product-price">$2,000</div>
+                        </div>
+                    </div>
+                     <div class="product-item" data-category="dining-room">
+                        <div class="product-image">
+                             <i class="fas fa-chair"></i>
+                        </div>
+                        <div class="product-content">
+                            <h3 data-en="Modern Dining Chairs" data-ar="كراسي طعام عصرية">Modern Dining Chairs</h3>
+                            <p data-en="Stylish and comfortable dining chairs for a contemporary dining space." data-ar="كراسي طعام أنيقة ومريحة لمساحة تناول طعام عصرية.">Stylish and comfortable dining chairs for a contemporary dining space.</p>
+                            <div class="product-price">$250 each</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section blog" id="blog">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="section-title" data-en="Our Blog" data-ar="مدونتنا">Our Blog</h2>
+                <p class="section-subtitle" data-en="Stay updated with our latest news, insights, and design tips." data-ar="ابق على اطلاع بآخر أخبارنا ورؤانا ونصائح التصميم.">Stay updated with our latest news, insights, and design tips.</p>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Blog Post Item 1 -->
+                <div class="blog-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1516455590571-18256e5074b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title" data-en="Designing Your Dream Living Room" data-ar="تصميم غرفة المعيشة التي تحلم بها">Designing Your Dream Living Room</h3>
+                        <p class="blog-excerpt" data-en="Tips and tricks for creating a luxurious and comfortable living space that reflects your personal style." data-ar="نصائح وحيل لخلق مساحة معيشة فاخرة ومريحة تعكس أسلوبك الشخصي.">Tips and tricks for creating a luxurious and comfortable living space that reflects your personal style.</p>
+                        <a href="#" class="read-more" data-en="Read More" data-ar="اقرأ المزيد">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post Item 2 -->
+                <div class="blog-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                     <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1522771737-55c6cd830320?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title" data-en="Choosing the Perfect Bed for a Good Night's Sleep" data-ar="اختيار السرير المثالي لنوم هانئ">Choosing the Perfect Bed for a Good Night's Sleep</h3>
+                        <p class="blog-excerpt" data-en="Factors to consider when selecting a bed that offers both support and style for your bedroom." data-ar="العوامل التي يجب مراعاتها عند اختيار سرير يوفر الدعم والأناقة لغرفة نومك.">Factors to consider when selecting a bed that offers both support and style for your bedroom.</p>
+                        <a href="#" class="read-more" data-en="Read More" data-ar="اقرأ المزيد">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post Item 3 -->
+                <div class="blog-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                     <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1540575467063-7d498679e5f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title" data-en="Elevating Your Dining Experience" data-ar="الارتقاء بتجربة تناول الطعام">Elevating Your Dining Experience</h3>
+                        <p class="blog-excerpt" data-en="Discover how the right dining furniture can transform your meals into memorable occasions." data-ar="اكتشف كيف يمكن لأثاث الطعام المناسب أن يحول وجباتك إلى مناسبات لا تُنسى.">Discover how the right dining furniture can transform your meals into memorable occasions.</p>
+                        <a href="#" class="read-more" data-en="Read More" data-ar="اقرأ المزيد">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="section-title" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</h2>
+                <p class="section-subtitle" data-en="Ready to start your journey with us? Get in touch and let's discuss how we can help your business succeed." data-ar="مستعد لبدء رحلتك معنا؟ تواصل معنا دعنا نناقش كيف يمكننا مساعدة أعمالك على النجاح.">Ready to start your journey with us? Get in touch and let's discuss how we can help your business succeed.</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-form" data-aos="fade-right" data-aos-duration="1000">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            <div class="error-message" id="nameError"></div>
+                </div>
+                        
+                        <div class="form-group">
+                            <label for="email" data-en="Email Address" data-ar="البريد الإلكتروني">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                            <div class="error-message" id="phoneError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" data-en="Subject" data-ar="الموضوع">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                            <div class="error-message" id="subjectError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" data-en="Message" data-ar="الرسالة">Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                            <div class="error-message" id="messageError"></div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <span data-en="Send Message" data-ar="إرسال الرسالة">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info" data-aos="fade-left" data-aos-duration="1000">
+                    <h3 data-en="Get In Touch" data-ar="تواصل معنا">Get In Touch</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4 data-en="Address" data-ar="العنوان">Address</h4>
+                            <p data-en="123 Business District, Downtown Area, Cairo, Egypt" data-ar="123 الحي التجاري، وسط البلد، القاهرة، مصر">123 Business District, Downtown Area, Cairo, Egypt</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 data-en="Phone" data-ar="الهاتف">Phone</h4>
+                            <p>+20 123 456 7890</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 data-en="Email" data-ar="البريد الإلكتروني">Email</h4>
+                            <p>info@asasawad.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 data-en="Business Hours" data-ar="ساعات العمل">Business Hours</h4>
+                            <p data-en="Monday - Friday: 9:00 AM - 6:00 PM" data-ar="الإثنين - الجمعة: 9:00 ص - 6:00 م">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" data-aos="fade-up" data-aos-duration="1000">
+                <div class="footer-section">
+                    <h3 data-en="Asas Awad" data-ar="أساس عوض">Asas Awad</h3>
+                    <p data-en="Excellence in business solutions. We empower businesses with innovative strategies and professional services to achieve sustainable growth and success." data-ar="التميز في الحلول التجارية. نمكن الشركات بالاستراتيجيات المبتكرة والخدمات المهنية لتحقيق النمو المستدام والنجاح.">Excellence in business solutions. We empower businesses with innovative strategies and professional services to achieve sustainable growth and success.</p>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+            </div>
+                
+                <div class="footer-section">
+                    <h3 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="#about" data-en="About Us" data-ar="من نحن">About Us</a></li>
+                        <li><a href="#services" data-en="Services" data-ar="خدماتنا">Services</a></li>
+                        <li><a href="#portfolio" data-en="Portfolio" data-ar="أعمالنا">Portfolio</a></li>
+                        <li><a href="#team" data-en="Our Team" data-ar="فريقنا">Our Team</a></li>
+                        <li><a href="#contact" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+                        <li><a href="#shop" data-en="Shop" data-ar="المتجر">Shop</a></li>
+                        <li><a href="#blog" data-en="Blog" data-ar="المدونة">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 data-en="Our Services" data-ar="خدماتنا">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services" data-en="Business Consulting" data-ar="الاستشارات التجارية">Business Consulting</a></li>
+                        <li><a href="#services" data-en="Digital Solutions" data-ar="الحلول الرقمية">Digital Solutions</a></li>
+                        <li><a href="#services" data-en="Marketing & Branding" data-ar="التسويق والعلامة التجارية">Marketing & Branding</a></li>
+                        <li><a href="#services" data-en="Project Management" data-ar="إدارة المشاريع">Project Management</a></li>
+                        <li><a href="#services" data-en="Risk Management" data-ar="إدارة المخاطر">Risk Management</a></li>
+                        <li><a href="#services" data-en="Training & Development" data-ar="التدريب والتطوير">Training & Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 data-en="Newsletter" data-ar="النشرة الإخبارية">Newsletter</h3>
+                    <p data-en="Subscribe to our newsletter for the latest updates and insights." data-ar="اشترك في نشرتنا الإخبارية للحصول على آخر التحديثات والرؤى.">Subscribe to our newsletter for the latest updates and insights.</p>
+                    <form class="newsletter-form" style="margin-top: 1rem;">
+                        <div style="display: flex; gap: 0.5rem;">
+                            <input type="email" placeholder="Enter your email" class="form-control" style="flex: 1;">
+                            <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem;">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Asas Awad. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            mirror: false,
+            offset: 100
+        });
+
+        // Loading Screen
+        window.addEventListener('load', () => {
+            const loading = document.getElementById('loading');
+            loading.classList.add('hidden');
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Language Toggle
+        const langToggle = document.getElementById('langToggle');
+        const body = document.body;
+        langToggle.addEventListener('click', () => {
+            const currentLang = body.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+            body.setAttribute('dir', currentLang);
+            updateLanguage(currentLang);
+        });
+
+        function updateLanguage(lang) {
+            const elements = document.querySelectorAll('[data-en][data-ar]');
+            elements.forEach(element => {
+                const text = lang === 'rtl' ? element.getAttribute('data-ar') : element.getAttribute('data-en');
+                element.textContent = text;
+            });
+        }
+
+        // Testimonial Slider
+        const testimonialTrack = document.getElementById('testimonialTrack');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let currentSlide = 0;
+
+        function updateSlider() {
+            testimonialTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateSlider();
+            });
+        });
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % dots.length;
+            updateSlider();
+        }, 5000);
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form Validation
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your message. We will get back to you soon!');
+            contactForm.reset();
+        });
+
+        // Intersection Observer for Section Animations
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Hero Slider
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroDots = document.querySelectorAll('.hero-slider-dot');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        let currentHeroSlide = 0;
+        let slideInterval;
+
+        function updateHeroSlider() {
+            heroSlides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentHeroSlide);
+            });
+            heroDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentHeroSlide);
+            });
+        }
+
+        function startSlideInterval() {
+            slideInterval = setInterval(() => {
+                currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+                updateHeroSlider();
+            }, 5000);
+        }
+
+        function stopSlideInterval() {
+            clearInterval(slideInterval);
+        }
+
+        // Event Listeners
+        prevBtn.addEventListener('click', () => {
+            stopSlideInterval();
+            currentHeroSlide = (currentHeroSlide - 1 + heroSlides.length) % heroSlides.length;
+            updateHeroSlider();
+            startSlideInterval();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            stopSlideInterval();
+            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+            updateHeroSlider();
+            startSlideInterval();
+        });
+
+        heroDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopSlideInterval();
+                currentHeroSlide = index;
+                updateHeroSlider();
+                startSlideInterval();
+            });
+        });
+
+        // Start the slider
+        startSlideInterval();
+
+        // Clients/Partners Section Hover Effect
+        const clientItems = document.querySelectorAll('.client-item');
+        const clientsBackground = document.querySelector('.clients-background');
+
+        clientItems.forEach(item => {
+            item.addEventListener('mouseover', () => {
+                const bgImage = item.getAttribute('data-bg-image');
+                if (bgImage) {
+                    clientsBackground.style.backgroundImage = `url('${bgImage}')`;
+                    clientsBackground.style.opacity = '0.1'; // Match the CSS opacity or adjust as needed
+                }
+            });
+
+            item.addEventListener('mouseout', () => {
+                clientsBackground.style.backgroundImage = 'none';
+                clientsBackground.style.opacity = '0';
+            });
+        });
+
+        // Clients Slider Logic
+        const clientsTrack = document.querySelector('.clients-track');
+        const clientItemsList = document.querySelectorAll('.clients-track .client-item');
+        const prevClientBtn = document.getElementById('prevClient');
+        const nextClientBtn = document.getElementById('nextClient');
+
+        let currentClientIndex = 0;
+        const clientItemWidth = clientItemsList[0].offsetWidth + 16; // client item width + margin (1rem = 16px)
+
+        function updateClientsSlider() {
+            clientsTrack.style.transform = `translateX(${-currentClientIndex * clientItemWidth}px)`;
+        }
+
+        nextClientBtn.addEventListener('click', () => {
+            currentClientIndex = (currentClientIndex + 1) % clientItemsList.length;
+            updateClientsSlider();
+        });
+
+        prevClientBtn.addEventListener('click', () => {
+            currentClientIndex = (currentClientIndex - 1 + clientItemsList.length) % clientItemsList.length;
+            updateClientsSlider();
+        });
+
+        // Shop Category Filtering
+        const categoryLinks = document.querySelectorAll('a.category-link');
+        const productItems = document.querySelectorAll('.shop-products-grid .product-item');
+
+        function filterProducts(selectedCategory) {
+            productItems.forEach(item => {
+                const productCategory = item.getAttribute('data-category');
+                if (selectedCategory === 'all' || productCategory === selectedCategory) {
+                    item.style.display = ''; // Use default display (grid item)
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const selectedCategory = link.getAttribute('data-category');
+
+                // Remove active class from all links
+                categoryLinks.forEach(otherLink => otherLink.classList.remove('active'));
+                // Add active class to the clicked link
+                link.classList.add('active');
+
+                filterProducts(selectedCategory);
+
+                // Scroll back to the shop section
+                const shopSection = document.getElementById('shop');
+                shopSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Show all products by default on page load
+        window.addEventListener('load', () => {
+             filterProducts('all');
+             // Optionally, set the 'All' link as active on load
+             document.querySelector('.category-link[data-category="all"]').classList.add('active');
+        });
+
+    </script>
+</body>
+</html>
